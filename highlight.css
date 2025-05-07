@@ -1,0 +1,16 @@
+.filter-buttons.highlight {
+  animation: highlightGlow 1s ease-in-out;
+  border: 2px solid white;
+  box-shadow: 0 0 10px 3px #ffcc00;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+@keyframes highlightGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px 3px blue;
+  }
+  50% {
+    box-shadow: 0 0 20px 6px blue;
+  }
+}

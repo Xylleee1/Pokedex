@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PokeDex</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/highlight.css" />
+  <link rel="icon" href="assets/images/pokemon-5.png">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');</style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="assets/images/pokee.png" alt="Pokedex Logo" />
+    </div>
+  
+      <nav>
+        <ul>
+          <li><a href="#" id="nav-home">Home</a></li>
+          <li><a href="#" id="nav-pokemon">Pokemon</a></li>
+          <li><a href="#filter-buttons" id="nav-types">Types</a></li>
+          <li><a href="#" id="nav-about">About</a></li>
+        </ul>
+      </nav>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search your Pokémon..." />
+      <button onclick="searchPokemon()">Search</button>
+      <select id="sortSelect">
+        <option value="highest">Highest num</option>
+        <option value="lowest">Lowest num</option>
+        <option value="za">Z-A</option>
+        <option value="az">A-Z</option>
+      </select>
+    </div>
+  </header>
+  
+    <div class="main-content">
+  
+      <div id="filter-buttons" class="filter-buttons" style="display: flex; flex-wrap: wrap;">
+  
+        <button onclick="filterByType('')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <div style="background: linear-gradient(white, #f0f0f0); border-radius: 50%; padding: 3px; display: flex; align-items: center; justify-content: center;">
+            <img src="assets/images/all.gif" alt="All Icon" style="border-radius: 50%; width: 40px; height: 40px; object-fit: cover;">
+          </div>
+          <span style="margin-top: 4px; color: gray; font-size: 0.7rem;">All</span>
+        </button>
+        
+      
+        <button onclick="filterByType('fire')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/7.png" alt="Fire Icon">
+          <span style="margin-top: 4px; color: #F08030; font-size: 0.7rem; ">Fire</span>
+        </button>
+      
+        <button onclick="filterByType('water')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/18.png" alt="Water Icon">
+          <span style="margin-top: 4px; color: #6890F0; font-size: 0.7rem;">Water</span>
+        </button>
+      
+        <button onclick="filterByType('grass')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/10.png" alt="Grass Icon">
+          <span style="margin-top: 4px; color: #78C850; font-size: 0.7rem;">Grass</span>
+        </button>
+      
+        <button onclick="filterByType('electric')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/4.png" alt="Electric Icon">
+          <span style="margin-top: 4px; color: #F8D030; font-size: 0.7rem;">Electric</span>
+        </button>
+      
+        <button onclick="filterByType('bug')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/1.png" alt="Bug Icon">
+          <span style="margin-top: 4px; color: #A8B820; font-size: 0.7rem;">Bug</span>
+        </button>
+      
+        <button onclick="filterByType('poison')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/14.png" alt="Poison Icon">
+          <span style="margin-top: 4px; color: #970b97; font-size: 0.7rem;">Poison</span>
+        </button>
+      
+        <button onclick="filterByType('ground')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/11.png" alt="Ground Icon">
+          <span style="margin-top: 4px; color: #E0C068; font-size: 0.7rem;">Ground</span>
+        </button>
+      
+        <button onclick="filterByType('fairy')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/5.png" alt="Fairy Icon">
+          <span style="margin-top: 4px; color: #EE99AC; font-size: 0.7rem;">Fairy</span>
+        </button>
+      
+        <button onclick="filterByType('normal')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/13.png" alt="Normal Icon">
+          <span style="margin-top: 4px; color: #A8A878; font-size: 0.7rem;">Normal</span>
+        </button>
+      
+        <button onclick="filterByType('fighting')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/6.png" alt="Fighting Icon">
+          <span style="margin-top: 4px; color: #C03028; font-size: 0.7rem;">Fighting</span>
+        </button>
+      
+        <button onclick="filterByType('psychic')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/15.png" alt="Psychic Icon">
+          <span style="margin-top: 4px; color: #F85888; font-size: 0.7rem;">Psychic</span>
+        </button>
+      
+        <button onclick="filterByType('rock')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/16.png" alt="Rock Icon">
+          <span style="margin-top: 4px; color: #B8A038; font-size: 0.7rem;">Rock</span>
+        </button>
+      
+        <button onclick="filterByType('ghost')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/9.png" alt="Ghost Icon">
+          <span style="margin-top: 4px; color: #4d3e64; font-size: 0.7rem;">Ghost</span>
+        </button>
+      
+        <button onclick="filterByType('ice')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/12.png" alt="Ice Icon">
+          <span style="margin-top: 4px; color: #98D8D8; font-size: 0.7rem;">Ice</span>
+        </button>
+      
+        <button onclick="filterByType('dragon')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/3.png" alt="Dragon Icon">
+          <span style="margin-top: 4px; color: #4c00ff; font-size: 0.7rem;">Dragon</span>
+        </button>
+      
+        <button onclick="filterByType('dark')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/2.png" alt="Dark Icon">
+          <span style="margin-top: 4px; color: #705848; font-size: 0.7rem;">Dark</span>
+        </button>
+      
+        <button onclick="filterByType('steel')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/17.png" alt="Steel Icon">
+          <span style="margin-top: 4px; color: #B8B8D0; font-size: 0.7rem;">Steel</span>
+        </button>
+      
+        <button onclick="filterByType('flying')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+          <img src="assets/images/8.png" alt="Flying Icon">
+          <span style="margin-top: 4px; color: #A890F0; font-size: 0.7rem;">Flying</span>
+        </button>
+      
+      </div>
+            
+      <div id="loading" class="loading">
+        <img src="assets/images/loading.gif" alt="Loading..." class="loading-gif" />
+        <div>Loading Pokémon...</div>
+      </div>
+
+      <div class="cardContainer" id="poke-container"></div>
+<button id="loadMoreBtn" class="load-more" onclick="loadMorePokemon()">Load More</button>
+<button id="loadAllBtn" class="load-all" onclick="loadAllPokemon()">Load All</button>
+    </div>
+    <div id="pokemonCount" style="text-align:center; font-weight:bold; margin-bottom: 1rem; color: var(--dark);"></div>
+    <div id="loadedCount" style="text-align:center; font-weight:bold; margin-bottom: 1rem; color: var(--dark);"></div>
+
+    <div class="overlay" id="overlay">
+      <div class="popup">
+        <button class="close-btn" id="closeBtn">&times;</button>
+        <div class="image" style="padding-bottom: 200px; padding-right: 10px;">
+          <img src="assets/images/Pokecardmaker (2).png" alt="Image" style="width: 100%; height: auto;">
+        </div>        
+        <div class="nameNnum" style="text-align: center; margin-top: 1.5rem;">
+          <h3>pokemon name</h3>
+          <h4>number</h4>
+        </div>
+        <div class="details">
+          <div class="height">
+            <p>Height: </p>
+            <p>(number)</p>
+          </div>
+          <div class="weight">
+            <p>Weight: </p>
+            <p>(numbers)</p>
+          </div>
+          <div class="exp">
+            <p>Exp: </p>
+            <p>numbers</p>
+          </div>
+          <div class="category">
+            <p>Category: </p>
+            <p>(category)</p>
+          </div>
+          <div class="gender">
+            <p>Gender: </p>
+            <p>(gender)</p>
+          </div>
+          <div class="abilities">
+            <p>Abilities: </p>
+            <p>(abilities)</p>
+          </div>
+          <div class="description" style="margin-top: 1rem; font-style:unset; font-size: 0.9rem; padding: 2px;">
+            <p>Description: </p>
+            <p>(description)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
+</create_file>
+
