@@ -338,14 +338,13 @@ body {
 
 .filter-buttons {
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  gap: 1rem 1.5rem;
+  flex-wrap: nowrap; /* Keep buttons in one line */
+  justify-content: center; /* Center horizontally */
+  gap: 1rem 1rem;
   margin-bottom: 2rem;
   max-width: 100%;
-  min-width: 0; /* Important fix for Chrome */
+  padding: 0 1rem; /* Optional: spacing on sides */
 }
-
 .filter-buttons button {
   font-family: 'Press Start 2P', monospace, sans-serif;
   padding: 0.4rem 0.8rem;
