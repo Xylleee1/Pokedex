@@ -144,8 +144,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding-left: 2rem; 
-  padding-right: 2rem;
 }
 
 .left-section {
@@ -343,7 +341,6 @@ body {
   gap: 1rem 1rem;
   margin-bottom: 2rem;
   max-width: 100%;
-  padding: 0 1rem; /* Optional: spacing on sides */
 }
 .filter-buttons button {
   font-family: 'Press Start 2P', monospace, sans-serif;
