@@ -343,9 +343,6 @@ body {
   gap: 1rem 1.5rem; 
   margin-bottom: 2rem;
   max-width: 100%;
-  padding-left: 10px;
-  
-
 }
 
 
@@ -388,8 +385,8 @@ body {
   z-index: 1;
 }
 .filter-buttons button img {
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
   object-fit: contain;
 }
 
