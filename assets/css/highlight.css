@@ -1,0 +1,28 @@
+.filter-buttons.highlight button span {
+  animation: textGlow 2s ease-in-out infinite;
+  color: #ffcc00;
+  text-shadow:
+    0 0 5px #ffcc00,
+    0 0 10px #ffcc00,
+    0 0 20px #ffcc00,
+    0 0 40px #ffcc00;
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    color: #ffcc00;
+    text-shadow:
+      0 0 8px #ffcc00,
+      0 0 16px #ffcc00,
+      0 0 24px #ffcc00,
+      0 0 32px #ffcc00;
+  }
+  50% {
+    color: #fffacd;
+    text-shadow:
+      0 0 12px #fffacd,
+      0 0 24px #fffacd,
+      0 0 36px #fffacd,
+      0 0 48px #fffacd;
+  }
+}

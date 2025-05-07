@@ -6,6 +6,7 @@
   <title>PokeDex</title>
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/highlight.css" />
+
   <link rel="icon" href="assets/images/pokemon-5.png">
   <style>@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');</style>
 </head>
@@ -14,8 +15,15 @@
     <div class="logo">
       <img src="assets/images/pokee.png" alt="Pokedex Logo" />
     </div>
+
+    <!-- Hamburger menu button for mobile -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
   
-      <nav>
+      <nav id="nav-menu">
         <ul>
           <li><a href="#" id="nav-home">Home</a></li>
           <li><a href="#" id="nav-pokemon">Pokemon</a></li>
@@ -39,7 +47,7 @@
   
       <div id="filter-buttons" class="filter-buttons" style="display: flex; flex-wrap: wrap;">
   
-        <button onclick="filterByType('')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('')" data-image="assets/images/all.gif" data-title="All Types" data-description="Showing all Pokémon types." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <div style="background: linear-gradient(white, #f0f0f0); border-radius: 50%; padding: 3px; display: flex; align-items: center; justify-content: center;">
             <img src="assets/images/all.gif" alt="All Icon" style="border-radius: 50%; width: 40px; height: 40px; object-fit: cover;">
           </div>
@@ -47,92 +55,92 @@
         </button>
         
       
-        <button onclick="filterByType('fire')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('fire')" data-image="assets/images/7.png" data-title="Fire Type" data-description="Pokémon with fire abilities and attacks." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/7.png" alt="Fire Icon">
           <span style="margin-top: 4px; color: #F08030; font-size: 0.7rem; ">Fire</span>
         </button>
       
-        <button onclick="filterByType('water')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('water')" data-image="assets/images/18.png" data-title="Water Type" data-description="Pokémon that live in or control water." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/18.png" alt="Water Icon">
           <span style="margin-top: 4px; color: #6890F0; font-size: 0.7rem;">Water</span>
         </button>
       
-        <button onclick="filterByType('grass')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('grass')" data-image="assets/images/10.png" data-title="Grass Type" data-description="Pokémon that use plants and nature." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/10.png" alt="Grass Icon">
           <span style="margin-top: 4px; color: #78C850; font-size: 0.7rem;">Grass</span>
         </button>
       
-        <button onclick="filterByType('electric')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('electric')" data-image="assets/images/4.png" data-title="Electric Type" data-description="Pokémon with electric powers." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/4.png" alt="Electric Icon">
           <span style="margin-top: 4px; color: #F8D030; font-size: 0.7rem;">Electric</span>
         </button>
       
-        <button onclick="filterByType('bug')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('bug')" data-image="assets/images/1.png" data-title="Bug Type" data-description="Pokémon that resemble insects." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/1.png" alt="Bug Icon">
           <span style="margin-top: 4px; color: #A8B820; font-size: 0.7rem;">Bug</span>
         </button>
       
-        <button onclick="filterByType('poison')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('poison')" data-image="assets/images/14.png" data-title="Poison Type" data-description="Pokémon with poisonous abilities." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/14.png" alt="Poison Icon">
           <span style="margin-top: 4px; color: #970b97; font-size: 0.7rem;">Poison</span>
         </button>
       
-        <button onclick="filterByType('ground')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('ground')" data-image="assets/images/11.png" data-title="Ground Type" data-description="Pokémon that live underground or on the ground." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/11.png" alt="Ground Icon">
           <span style="margin-top: 4px; color: #E0C068; font-size: 0.7rem;">Ground</span>
         </button>
       
-        <button onclick="filterByType('fairy')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('fairy')" data-image="assets/images/5.png" data-title="Fairy Type" data-description="Magical and mystical Pokémon." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/5.png" alt="Fairy Icon">
           <span style="margin-top: 4px; color: #EE99AC; font-size: 0.7rem;">Fairy</span>
         </button>
       
-        <button onclick="filterByType('normal')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('normal')" data-image="assets/images/13.png" data-title="Normal Type" data-description="Common and balanced Pokémon." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/13.png" alt="Normal Icon">
           <span style="margin-top: 4px; color: #A8A878; font-size: 0.7rem;">Normal</span>
         </button>
       
-        <button onclick="filterByType('fighting')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('fighting')" data-image="assets/images/6.png" data-title="Fighting Type" data-description="Strong and combative Pokémon." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/6.png" alt="Fighting Icon">
           <span style="margin-top: 4px; color: #C03028; font-size: 0.7rem;">Fighting</span>
         </button>
       
-        <button onclick="filterByType('psychic')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('psychic')" data-image="assets/images/15.png" data-title="Psychic Type" data-description="Psychic powers and abilities." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/15.png" alt="Psychic Icon">
           <span style="margin-top: 4px; color: #F85888; font-size: 0.7rem;">Psychic</span>
         </button>
       
-        <button onclick="filterByType('rock')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('rock')" data-image="assets/images/16.png" data-title="Rock Type" data-description="Rocky and sturdy Pokémon." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/16.png" alt="Rock Icon">
           <span style="margin-top: 4px; color: #B8A038; font-size: 0.7rem;">Rock</span>
         </button>
       
-        <button onclick="filterByType('ghost')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('ghost')" data-image="assets/images/9.png" data-title="Ghost Type" data-description="Ghostly and mysterious Pokémon." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/9.png" alt="Ghost Icon">
           <span style="margin-top: 4px; color: #4d3e64; font-size: 0.7rem;">Ghost</span>
         </button>
       
-        <button onclick="filterByType('ice')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('ice')" data-image="assets/images/12.png" data-title="Ice Type" data-description="Cold and icy Pokémon." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/12.png" alt="Ice Icon">
           <span style="margin-top: 4px; color: #98D8D8; font-size: 0.7rem;">Ice</span>
         </button>
       
-        <button onclick="filterByType('dragon')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('dragon')" data-image="assets/images/3.png" data-title="Dragon Type" data-description="Powerful dragon Pokémon." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/3.png" alt="Dragon Icon">
           <span style="margin-top: 4px; color: #4c00ff; font-size: 0.7rem;">Dragon</span>
         </button>
       
-        <button onclick="filterByType('dark')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('dark')" data-image="assets/images/2.png" data-title="Dark Type" data-description="Dark and shadowy Pokémon." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/2.png" alt="Dark Icon">
           <span style="margin-top: 4px; color: #705848; font-size: 0.7rem;">Dark</span>
         </button>
       
-        <button onclick="filterByType('steel')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('steel')" data-image="assets/images/17.png" data-title="Steel Type" data-description="Steel and metallic Pokémon." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/17.png" alt="Steel Icon">
           <span style="margin-top: 4px; color: #B8B8D0; font-size: 0.7rem;">Steel</span>
         </button>
       
-        <button onclick="filterByType('flying')" style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
+        <button onclick="filterByType('flying')" data-image="assets/images/8.png" data-title="Flying Type" data-description="Flying and aerial Pokémon." style="background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;">
           <img src="assets/images/8.png" alt="Flying Icon">
           <span style="margin-top: 4px; color: #A890F0; font-size: 0.7rem;">Flying</span>
         </button>
